@@ -53,6 +53,18 @@ class MainViewModel(app: Application) : ViewModel() {
 //        viewModelScope.launch { findUSer("bagus") }
     }
 
+    fun delete(favorite: Favorite) {
+        mFavoriteRepository.delete(favorite)
+    }
+
+    fun insert(favorite: Favorite) {
+        mFavoriteRepository.insert(favorite)
+    }
+
+    fun getFavoriteById(id: Int): LiveData<List<Favorite>> {
+        return mFavoriteRepository.getUserFavoriteById(id)
+    }
+
     fun findUSer(query: String) {
         _isLoading.value = true
         val client = ApiConfig.getApiService().searchUsername(TOKEN, query)
