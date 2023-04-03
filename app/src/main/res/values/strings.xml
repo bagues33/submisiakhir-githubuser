@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">GithubUser</string>
+    <string name="search">Search</string>
+    <string name="search_hint">Masukkan kata</string>
+    <string name="showing_result">Showing %d results</string>
+    <string name="name">bagues33</string>
+    <string name="count_repo">30</string>
+    <string name="repo">Repositories</string>
+    <string name="followers">Followers</string>
+    <string name="following">Following</string>
+    <string name="bio">lorem ipsum dolor si amet</string>
+    <string name="open_github">Open On Github</string>
+    <string name="company">PT Script Media</string>
+    <string name="location">Yogyakarta</string>
+    <string name="web">www.scriptmedia.net</string>
+    <string name="profile">Profile</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="followers_fragment">Followers</string>
+    <string name="following_fragment">Following</string>
+    <string name="content_tab_text">This is Tab %1$d</string>
+    <string name="no_users_found">User not found</string>
+    <string name="favorite_button">Favorite Button</string>
+</resources>
