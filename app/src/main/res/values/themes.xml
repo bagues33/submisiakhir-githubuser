@@ -13,8 +13,11 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="TextItemUser">
+        <item name="android:textColor">@color/black</item>
+    </style>
 
-    <style name="SplashTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="SplashTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <item name="android:windowBackground">@drawable/splash_github_light</item>
         <!-- Status & Navigation bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorOnPrimary</item>

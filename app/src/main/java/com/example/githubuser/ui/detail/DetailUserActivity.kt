@@ -14,7 +14,6 @@ import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
-import com.example.githubuser.ui.main.MainViewModel
 import com.example.githubuser.R
 import com.example.githubuser.ViewModelFactory
 import com.example.githubuser.adapter.SectionsPagerAdapter
@@ -30,6 +29,8 @@ class DetailUserActivity : AppCompatActivity(), View.OnClickListener{
 
     companion object {
         const val EXTRA_DETAIL = "extra_detail"
+        const val KEY_ID = "key_id"
+        const val KEY_AVATAR = "key_avatar"
         @StringRes
         val TAB_TITLES = intArrayOf(
             R.string.followers_fragment,
@@ -42,16 +43,6 @@ class DetailUserActivity : AppCompatActivity(), View.OnClickListener{
 
     private var username: String? = null
     private var profileUrl: String? = null
-
-//    var detailViewModel: MainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-
-//    val detailViewModel by viewModels<MainViewModel>()
-
-//    val detailViewModel: MainViewModel by viewModels {}
-
-
-
-//    val detailViewModel = ViewModelProvider(this, ViewModelFactory(application)).get(MainViewModel::class.java)
 
     private var isFavorite = false
 
@@ -66,6 +57,9 @@ class DetailUserActivity : AppCompatActivity(), View.OnClickListener{
         setToolbar()
 
         val favorite = Favorite()
+        favorite.login = username
+        favorite.id = intent.getIntExtra(KEY_ID, 0)
+        favorite.avatar_url = intent.getStringExtra(KEY_AVATAR)
         val sectionsPagerAdapter = SectionsPagerAdapter(this, username!!)
         val viewPager: ViewPager2 = findViewById(R.id.view_pager)
         viewPager.adapter = sectionsPagerAdapter
@@ -75,7 +69,7 @@ class DetailUserActivity : AppCompatActivity(), View.OnClickListener{
         }.attach()
         supportActionBar?.elevation = 0f
 
-        val detailViewModel: MainViewModel by viewModels {
+        val detailViewModel: DetailViewModel by viewModels {
             ViewModelFactory(application)
         }
 

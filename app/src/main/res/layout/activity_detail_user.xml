@@ -98,11 +98,11 @@
 
                         <TextView
                             android:id="@+id/detail_repositories"
+                            style="@style/TextItemUser"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/count_repo"
                             android:textAlignment="center"
-                            android:textColor="@color/black"
                             android:textSize="18sp"
                             android:textStyle="bold" />
 
@@ -122,11 +122,11 @@
 
                         <TextView
                             android:id="@+id/detail_followers"
+                            style="@style/TextItemUser"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/count_repo"
                             android:textAlignment="center"
-                            android:textColor="@color/black"
                             android:textSize="18sp"
                             android:textStyle="bold" />
 
@@ -146,11 +146,11 @@
 
                         <TextView
                             android:id="@+id/detail_following"
+                            style="@style/TextItemUser"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/count_repo"
                             android:textAlignment="center"
-                            android:textColor="@color/black"
                             android:textSize="18sp"
                             android:textStyle="bold" />
 
@@ -186,6 +186,7 @@
 
                     <TextView
                         android:id="@+id/detail_bio"
+                        style="@style/TextItemUser"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:drawablePadding="8dp"
@@ -198,6 +199,7 @@
 
                     <TextView
                         android:id="@+id/detail_company"
+                        style="@style/TextItemUser"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
@@ -211,6 +213,7 @@
 
                     <TextView
                         android:id="@+id/detail_location"
+                        style="@style/TextItemUser"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
@@ -224,6 +227,7 @@
 
                     <TextView
                         android:id="@+id/detail_web"
+                        style="@style/TextItemUser"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"

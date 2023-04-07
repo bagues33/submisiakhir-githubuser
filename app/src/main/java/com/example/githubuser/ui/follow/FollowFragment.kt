@@ -1,4 +1,4 @@
-package com.example.githubuser
+package com.example.githubuser.ui.follow
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -9,9 +9,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.githubuser.ItemsItem
+import com.example.githubuser.adapter.UserAdapter
 import com.example.githubuser.databinding.FragmentFollowBinding
 import com.example.githubuser.ui.detail.DetailUserActivity
-import com.example.githubuser.ui.main.MainViewModel
 
 /**
  * A simple [Fragment] subclass.
@@ -23,7 +24,7 @@ class FollowFragment : Fragment() {
     private var _binding: FragmentFollowBinding? = null
     private val binding get() = _binding!!
 
-    private val mainViewModel by viewModels<MainViewModel>()
+    val followViewModel by viewModels<FollowViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,7 +33,7 @@ class FollowFragment : Fragment() {
 
         _binding = FragmentFollowBinding.inflate(layoutInflater, container, false)
 
-        mainViewModel.isLoading.observe(viewLifecycleOwner) {
+        followViewModel.isLoading.observe(viewLifecycleOwner) {
             showLoading(it)
         }
 
@@ -46,20 +47,20 @@ class FollowFragment : Fragment() {
 //        val username = arguments?.getString(ARG_USERNAME) ?: ""
         if (position == 1) {
 
-            mainViewModel.followers.observe(viewLifecycleOwner) { followers ->
+            followViewModel.followers.observe(viewLifecycleOwner) { followers ->
                 if (followers == null) {
                     val username = arguments?.getString(ARG_USERNAME) ?: ""
-                    mainViewModel.getUserFollowers(username)
+                    followViewModel.getUserFollowers(username)
                 } else {
                     showFollow(followers)
                 }
             }
         } else {
 
-            mainViewModel.following.observe(viewLifecycleOwner) { following ->
+            followViewModel.following.observe(viewLifecycleOwner) { following ->
                 if (following == null) {
                     val username = arguments?.getString(ARG_USERNAME) ?: ""
-                    mainViewModel.getUserFollowing(username)
+                    followViewModel.getUserFollowing(username)
                 } else {
                     showFollow(following)
                 }
@@ -92,6 +93,8 @@ class FollowFragment : Fragment() {
     private fun goToDetailUser(user: ItemsItem) {
         Intent(activity, DetailUserActivity::class.java).apply {
             putExtra(DetailUserActivity.EXTRA_DETAIL, user.login)
+            putExtra(DetailUserActivity.KEY_ID, user.id)
+            putExtra(DetailUserActivity.KEY_AVATAR, user.avatarUrl)
         }.also {
             startActivity(it)
         }
@@ -105,6 +108,5 @@ class FollowFragment : Fragment() {
     companion object {
         const val ARG_POSITION = "position"
         const val ARG_USERNAME = "username"
-//        const val  ARG_SECTION_NUMBER= "section_number"
     }
 }

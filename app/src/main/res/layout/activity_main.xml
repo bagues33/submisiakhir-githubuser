@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.githubuser.ui.main.MainActivity">
 
+
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"
@@ -42,7 +43,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/result_count"
         app:layout_constraintVertical_bias="0.0"
-        tools:itemCount="10"
+        tools:itemCount="3"
         tools:listitem="@layout/item_user" />
 
 
